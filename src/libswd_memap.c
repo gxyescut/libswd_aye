@@ -245,7 +245,7 @@ int libswd_memap_read_char(libswd_ctx_t *libswdctx, libswd_operation_t operation
  }
 
  // Mark start time for transfer speed measurement.
- gettimeofday(&tstart, NULL);
+ // gettimeofday(&tstart, NULL);
 
  // Perform word-by-word read operation and implode result into char array.
  if (!(libswdctx->log.memap.csw&LIBSWD_MEMAP_CSW_ADDRINC))
@@ -261,8 +261,8 @@ int libswd_memap_read_char(libswd_ctx_t *libswdctx, libswd_operation_t operation
    // note: this only works for little endian systems.
    drw_shift=8*(loc%4);
    // Measure transfer speed.
-   gettimeofday(&tstop, NULL);
-   tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
+   // gettimeofday(&tstop, NULL);
+//    tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
    libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,
               "LIBSWD_I: libswd_memap_read_char() reading address 0x%08X (speed %fKB/s)\r",
               loc, count/tdeltam );
@@ -317,8 +317,8 @@ int libswd_memap_read_char(libswd_ctx_t *libswdctx, libswd_operation_t operation
    }
 
    // Measure transfer speed.
-   gettimeofday(&tstop, NULL);
-   tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
+   // gettimeofday(&tstop, NULL);
+   // tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
    libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,
               "LIBSWD_I: libswd_memap_read_char() reading address 0x%08X (speed %fKB/s)\r",
               loc, count/tdeltam);
@@ -463,7 +463,7 @@ int libswd_memap_read_int(libswd_ctx_t *libswdctx, libswd_operation_t operation,
  }
 
  // Mark start time for transfer speed measurement.
- gettimeofday(&tstart, NULL);
+ // gettimeofday(&tstart, NULL);
 
  // Perform word-by-word read operation and store result into int array.
  if (!(libswdctx->log.memap.csw&LIBSWD_MEMAP_CSW_ADDRINC))
@@ -473,8 +473,8 @@ int libswd_memap_read_int(libswd_ctx_t *libswdctx, libswd_operation_t operation,
   {
    loc=addr+i*4;
    // Measure transfer speed.
-   gettimeofday(&tstop, NULL);
-   tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
+   // gettimeofday(&tstop, NULL);
+   // tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
    libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,
               "LIBSWD_I: libswd_memap_read_int() reading address 0x%08X (speed %fKB/s)\r",
               loc, count*4/tdeltam );
@@ -516,8 +516,8 @@ int libswd_memap_read_int(libswd_ctx_t *libswdctx, libswd_operation_t operation,
    }
 
    // Measure transfer speed.
-   gettimeofday(&tstop, NULL);
-   tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
+   // gettimeofday(&tstop, NULL);
+   // tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
    libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,
               "LIBSWD_I: libswd_memap_read_int() reading address 0x%08X (speed %fKB/s)\r",
               loc, count*4/tdeltam );
@@ -677,7 +677,7 @@ int libswd_memap_write_char(libswd_ctx_t *libswdctx, libswd_operation_t operatio
  }
 
  // Mark start time for transfer speed measurement.
- gettimeofday(&tstart, NULL);
+ // gettimeofday(&tstart, NULL);
 
  // Perform word-by-word write operation from char array.
  // Use write method that match the CSW AddrInc configuration.
@@ -693,8 +693,8 @@ int libswd_memap_write_char(libswd_ctx_t *libswdctx, libswd_operation_t operatio
    // note: this only works for little endian systems.
    drw_shift=8*(loc%4);
    // Measure transfer speed.
-   gettimeofday(&tstop, NULL);
-   tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
+   // gettimeofday(&tstop, NULL);
+   // tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
    libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,
               "LIBSWD_I: libswd_memap_write_char() writing address 0x%08X (speed %fKB/s)\r",
               loc, count/tdeltam );
@@ -746,8 +746,8 @@ int libswd_memap_write_char(libswd_ctx_t *libswdctx, libswd_operation_t operatio
    }
 
    // Measure transfer speed.
-   gettimeofday(&tstop, NULL);
-   tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
+   // gettimeofday(&tstop, NULL);
+   // tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
    libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,
               "LIBSWD_I: libswd_memap_write_char() writing address 0x%08X (speed %fKB/s)\r",
               loc, count/tdeltam );
@@ -885,7 +885,7 @@ int libswd_memap_write_int(libswd_ctx_t *libswdctx, libswd_operation_t operation
  }
 
  // Mark start time for transfer speed measurement.
- gettimeofday(&tstart, NULL);
+ // gettimeofday(&tstart, NULL);
 
  // Perform word-by-word write operation from int array.
  if (!(libswdctx->log.memap.csw&LIBSWD_MEMAP_CSW_ADDRINC))
@@ -895,8 +895,8 @@ int libswd_memap_write_int(libswd_ctx_t *libswdctx, libswd_operation_t operation
   {
    loc=addr+i*4;
    // Measure transfer speed.
-   gettimeofday(&tstop, NULL);
-   tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
+   // gettimeofday(&tstop, NULL);
+   // tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
    libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,
               "LIBSWD_I: libswd_memap_write_int() writing address 0x%08X (speed %fKB/s)\r",
               loc, count*4/tdeltam );
@@ -937,8 +937,8 @@ int libswd_memap_write_int(libswd_ctx_t *libswdctx, libswd_operation_t operation
    }
 
    // Measure transfer speed.
-   gettimeofday(&tstop, NULL);
-   tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
+   // gettimeofday(&tstop, NULL);
+   // tdeltam=fabsf((tstop.tv_sec-tstart.tv_sec)*1000+(tstop.tv_usec-tstart.tv_usec)/1000);
    libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,
               "LIBSWD_I: libswd_memap_write_int() writing address 0x%08X (speed %fKB/s)\r",
               loc, count*4/tdeltam );

@@ -48,7 +48,7 @@
  * see liblibswd_externs.c for examples. When you want to use variable argument
  * (printf style) invocation you can use libswd_log_internal_va() as vprintf().
  */
-extern int libswd_log(libswd_ctx_t *libswdctx, libswd_loglevel_t loglevel, char *msg, ...);
+// extern int libswd_log(libswd_ctx_t *libswdctx, libswd_loglevel_t loglevel, char *msg, ...);
 
 /** Put a message into swd context log at specified verbosity level.
  * If specified message's log level is lower than actual context configuration,

@@ -36,6 +36,7 @@
 
 #include <libswd.h>
 #include <stdlib.h>
+#include <stdlib_shim.h>
 #include <stdio.h>
 
 int main(int argc, char argv[]){

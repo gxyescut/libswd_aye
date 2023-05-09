@@ -112,7 +112,7 @@ int libswd_dap_setup(libswd_ctx_t *libswdctx, libswd_operation_t operation, int 
    res=libswd_dp_read(libswdctx, operation, LIBSWD_DP_CTRLSTAT_ADDR, &ctrlstat);
    if (res<0) goto libswd_dap_setup_error;
    if (*ctrlstat&(LIBSWD_DP_CTRLSTAT_CDBGPWRUPACK|LIBSWD_DP_CTRLSTAT_CSYSPWRUPACK)) break;
-   usleep(LIBSWD_RETRY_DELAY_DEFAULT);
+   USLEEP_FUNCTION(LIBSWD_RETRY_DELAY_DEFAULT);
   }
   libswdctx->log.dp.ctrlstat=*ctrlstat;
   libswd_log(libswdctx, LIBSWD_LOGLEVEL_INFO,

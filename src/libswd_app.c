@@ -38,6 +38,7 @@
 #include <libswd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdlib_shim.h>
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
@@ -412,7 +413,7 @@ int libswdapp_handle_command_flash(libswdapp_context_t *libswdappctx, char *comm
   {
    retval=libswd_memap_read_int_32(libswdctx, LIBSWD_OPERATION_EXECUTE, flash_memmap.FLASH_SR_ADDR, 1, &data);
    if (!(data&LIBSWDAPP_FLASH_STM32F1_FLASH_SR_BSY)) break;
-   usleep(100);
+   USLEEP_FUNCTION(100);
   }
   if (!i)
   {
@@ -433,7 +434,7 @@ int libswdapp_handle_command_flash(libswdapp_context_t *libswdappctx, char *comm
   {
    retval=libswd_memap_read_int_32(libswdctx, LIBSWD_OPERATION_EXECUTE, flash_memmap.FLASH_SR_ADDR, 1, &data);
    if (!(data&LIBSWDAPP_FLASH_STM32F1_FLASH_SR_BSY)) break;
-   usleep(100);
+   USLEEP_FUNCTION(100);
   }
   if (!i)
   {
@@ -533,7 +534,7 @@ libswdapp_handle_command_flash_file_load_ok:
    {
     retval=libswd_memap_read_int_32(libswdctx, LIBSWD_OPERATION_EXECUTE, flash_memmap.FLASH_SR_ADDR, 1, &data);
     if (!(data&LIBSWDAPP_FLASH_STM32F1_FLASH_SR_BSY)) break;
-    usleep(LIBSWD_RETRY_DELAY_DEFAULT);
+    USLEEP_FUNCTION(LIBSWD_RETRY_DELAY_DEFAULT);
    }
    if (!i)
    {
@@ -554,7 +555,7 @@ libswdapp_handle_command_flash_file_load_ok:
    {
     retval=libswd_memap_read_int_32(libswdctx, LIBSWD_OPERATION_EXECUTE, flash_memmap.FLASH_SR_ADDR, 1, &data);
     if (!(data&LIBSWDAPP_FLASH_STM32F1_FLASH_SR_BSY)) break;
-    usleep(100);
+    USLEEP_FUNCTION(100);
    }
    if (!i)
    {

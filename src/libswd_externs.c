@@ -36,6 +36,7 @@
 
 #include <libswd.h>
 #include <stdlib.h>
+#include <stdlib_shim.h>
 
 int libswd_drv_mosi_8(libswd_ctx_t *libswdctx, libswd_cmd_t *cmd, char *data, int bits, int nLSBfirst){
  if (data==NULL) return LIBSWD_ERROR_NULLPOINTER;
